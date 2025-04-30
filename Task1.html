@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            transition: transform 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 15px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #4a90e2;
+            background-color: white;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 25px;
+            margin-top: 8px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            accent-color: #4a90e2;
+        }
+
+        .radio-option label {
+            font-weight: normal;
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #357abd 0%, #2a5f8f 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+        .form-title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="form-title">Contact Information</h1>
+        <form>
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+            </div>
+
+            <div class="form-group">
+                <label for="contactNumber">Contact Number</label>
+                <input type="tel" id="contactNumber" name="contactNumber" pattern="[0-9]{10}" title="Please enter a 10-digit phone number" required placeholder="Enter 10-digit phone number">
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" required placeholder="Enter your complete address"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="companyName">Company Name</label>
+                <input type="text" id="companyName" name="companyName" required placeholder="Enter your company name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email address">
+            </div>
+
+            <div class="form-group">
+                <label for="department">Department</label>
+                <select id="department" name="department" required>
+                    <option value="">Select Department</option>
+                    <option value="hr">HR</option>
+                    <option value="sales">Sales</option>
+                    <option value="development">Development</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="others">Others</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        <label for="male">Male</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="preferNotToSay" name="gender" value="preferNotToSay">
+                        <label for="preferNotToSay">Prefer not to say</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Form</button>
+        </form>
+    </div>
+</body>
+</html> 
